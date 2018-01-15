@@ -1,0 +1,1 @@
+package com.wikift.captcha.example.springboot.thymeleaf;
