@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.wikift</groupId>
+    <artifactId>wikift-captcha-example</artifactId>
+    <version>1.0.0</version>
+
+    <!-- url -->
+    <url>http://www.wikift.com</url>
+
+    <!-- scm -->
+    <scm>
+        <url>https://github.com/wikift/wikift-captcha-example.git</url>
+    </scm>
+
+    <!-- licenses -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- developer -->
+    <developers>
+        <developer>
+            <name>qianmoQ</name>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- organization -->
+    <organization>
+        <name>Apache Software Foundation</name>
+        <url>http://www.apache.org</url>
+    </organization>
+
+    <!-- issueManagement -->
+    <issueManagement>
+        <system>jira</system>
+        <url>http://jira.ttxit.com/projects/WIKIFT</url>
+    </issueManagement>
+
+    <!-- properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- system version -->
+        <java.version>1.8</java.version>
+        <!-- plugins version -->
+        <plugin.maven.compiler.version>3.2</plugin.maven.compiler.version>
+        <plugin.frontend.version>1.6</plugin.frontend.version>
+        <plugin.springboot.version>1.1.8.RELEASE</plugin.springboot.version>
+        <!-- dependencie version -->
+        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+        <lombok.version>1.16.16</lombok.version>
+    </properties>
+
+    <!-- dependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- pluginRepositories -->
+    <pluginRepositories>
+    </pluginRepositories>
+
+    <!-- distributionManagement -->
+    <distributionManagement>
+    </distributionManagement>
+
+    <!-- repositories -->
+    <repositories>
+        <repository>
+            <id>nexus-ttxit</id>
+            <name>ttxit maven center</name>
+            <url>http://mooc.ttxit.com:8081/repository/maven/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- build -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- 构建可执行jar -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${plugin.springboot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- maven compile -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.maven.compiler.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
